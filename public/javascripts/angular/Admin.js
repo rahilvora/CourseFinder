@@ -53,7 +53,6 @@ adminApp.controller("UdacityController",["$scope","$http","$location",function($
     $scope.finance = [];
     $scope.accounting = [];
     $http.get('api/getUdacityCourses').then(function (result) {
-        debugger;
         var data = result.data.docs[0].courses;
         for(var a in data){
             if(data[a].website === "udacity"){

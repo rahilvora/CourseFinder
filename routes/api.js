@@ -291,9 +291,33 @@ router.get('/refreshDatabase',function(req,res){
     });
 });
 
+router.get("/getData", function(req,res){
+    var query = {
+        "selector": {
+            "_id": {
+                "$gt": 0
+            }
+        },
+        "fields": [
+            "courses"
+        ],
+        "sort": [
+            {
+                "_id": "asc"
+            }
+        ]
+    }
+    dbname.find(query,function(err,result){
+        if(!err){
+            //result.response = lastresponse;
+            res.send(result);
+        }
+    });
+});
+
 router.get('/getTypeFormData',function(req,res){
-        requestTypeFormApi(res);
-        //res.send(200);
+    requestTypeFormApi(res);
+    //res.send(200);
 });
 
 function requestTypeFormApi(res){
@@ -316,29 +340,6 @@ function requestTypeFormApi(res){
     })
 }
 
-router.get("/getData", function(req,res){
-    var query = {
-        "selector": {
-            "_id": {
-                "$gt": 0
-            }
-        },
-        "fields": [
-            "courses"
-        ],
-        "sort": [
-            {
-                "_id": "asc"
-            }
-        ]
-    }
-    dbname.find(query,function(err,result){
-        if(!err){
-            result.response = lastresponse;
-            res.send(result);
-        }
-    });
-});
 function dbcall(res, lastresponse){
     var query = {
         "selector": {

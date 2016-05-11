@@ -1,0 +1,106 @@
+<script>
+    $(function() {
+        $( "#tabs" ).tabs();
+        $( "#tabs2" ).tabs();
+    });
+</script>
+
+<h3>Technology Section</h3>
+<div id="tabs">
+    <ul>
+        <li><a href="#tabs-1">Web</a></li>
+        <li><a href="#tabs-2">Mobile</a></li>
+        <li><a href="#tabs-3">Big Data</a></li>
+    </ul>
+    <div id="tabs-1">
+        <table class="table table-striped">
+
+            <tr>
+                <th>Name</th>
+                <th>Course Provider</th>
+                <th>Category</th>
+                <th>Sub-Category</th>
+            </tr>
+            <tr ng-repeat = " data in subcategories.webDevelopment">
+                <td>{{data.name}}</td>
+                <td>{{data.website}}</td>
+                <td>{{data.category}}</td>
+                <td>{{data.subcategory}}</td>
+            </tr>
+
+        </table>
+    </div>
+    <div id="tabs-2">
+        <table class="table table-striped">
+            <tr>
+                <th>Name</th>
+                <th>Course Provider</th>
+                <th>Category</th>
+                <th>Sub-Category</th>
+            </tr>
+            <tr ng-repeat = " data in subcategories.mobileDevelopment">
+                <td>{{data.name}}</td>
+                <td>{{data.website}}</td>
+                <td>{{data.category}}</td>
+                <td>{{data.subcategory}}</td>
+            </tr>
+        </table>
+    </div>
+    <div id="tabs-3">
+        <table class="table table-striped">
+            <tr>
+                <th>Name</th>
+                <th>Course Provider</th>
+                <th>Category</th>
+                <th>Sub-Category</th>
+            </tr>
+            <tr ng-repeat = " data in subcategories.bigData">
+                <td>{{data.name}}</td>
+                <td>{{data.website}}</td>
+                <td>{{data.category}}</td>
+                <td>{{data.subcategory}}</td>
+            </tr>
+        </table>
+    </div>
+</div>
+
+<h3>Business Section</h3>
+<div id="tabs2">
+    <ul>
+        <li><a href="#tabs-4">Finance</a></li>
+        <li><a href="#tabs-5">Accouting</a></li>
+    </ul>
+    <div id="tabs-4">
+        <table class="table table-striped">
+            <tr>
+                <th>Name</th>
+                <th>Course Provider</th>
+                <th>Category</th>
+                <th>Sub-Category</th>
+            </tr>
+            <tr ng-repeat = " data in subcategories.finance">
+                <td>{{data.name}}</td>
+                <td>{{data.website}}</td>
+                <td>{{data.category}}</td>
+                <td>{{data.subcategory}}</td>
+            </tr>
+
+        </table>
+    </div>
+    <div id="tabs-5">
+        <table class="table table-striped">
+            <tr>
+                <th>Name</th>
+                <th>Course Provider</th>
+                <th>Category</th>
+                <th>Sub-Category</th>
+            </tr>
+            <tr ng-repeat = " data in subcategories.accounting">
+                <td>{{data.name}}</td>
+                <td>{{data.website}}</td>
+                <td>{{data.category}}</td>
+                <td>{{data.subcategory}}</td>
+            </tr>
+        </table>
+    </div>
+</div>
