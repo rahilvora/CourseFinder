@@ -72,6 +72,10 @@ UserApp.config(['$routeProvider',
             templateUrl: '../Views/Users/result.ejs',
             controller: 'GetRecommendationController'
         }).
+        when('/cloudcluster',{
+            templateUrl: '../Views/Users/start.html',
+            controller: ''
+        }).
         when('/',{
             templateUrl: '../Views/Users/home.ejs',
             controller: ''

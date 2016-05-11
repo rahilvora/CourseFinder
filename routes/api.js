@@ -111,6 +111,7 @@ function storeUdemydata(data){
         for(var i=0; i < len; i++) {
             var courseItem = Object.assign({}, commonCourseItem);
             courseItem.name = object[i].title;
+            courseItem.price = object[i].price;
             allCourses.push(courseItem);
         }
 
@@ -157,7 +158,8 @@ function generatedataUdacity(body){
                 courseItem.name = body[object].title;
                 courseItem.category = "Technology";
                 courseItem.subcategory = "mobile-development";
-                courseItem.website = "udacity"
+                courseItem.website = "udacity";
+                courseItem.price = "free";
                 allCourses.push(courseItem);
             }
             else if(body[object].tracks == "Web Development"){
@@ -165,7 +167,8 @@ function generatedataUdacity(body){
                 courseItem.name = body[object].title;
                 courseItem.category = "Technology";
                 courseItem.subcategory = "web-development";
-                courseItem.website = "udacity"
+                courseItem.website = "udacity";
+                courseItem.price = "free";
                 allCourses.push(courseItem);
             }
             else if(body[object].tracks == "iOS"){
@@ -174,6 +177,7 @@ function generatedataUdacity(body){
                 courseItem.category = "Technology";
                 courseItem.subcategory = "mobile-development";
                 courseItem.website = "udacity";
+                courseItem.price = "free";
                 allCourses.push(courseItem);
             }
             else if(body[object].tracks == "Data Science"){
@@ -182,6 +186,7 @@ function generatedataUdacity(body){
                 courseItem.category = "Technology";
                 courseItem.subcategory = "big-data";
                 courseItem.website = "udacity";
+                courseItem.price = "free";
                 allCourses.push(courseItem);
             }
         }
@@ -267,6 +272,15 @@ function storeCourseraData(data){
         for(var course in elements){
             var courseItem = Object.assign({}, commonCourseItem);
             courseItem.name = elements[course].name;
+            if(elements[course].courseType.substring("3") === "ondemand"){
+                courseItem.price = "paid";
+            }
+            else if(elements[course].courseType.substring("3") === "capstone"){
+                courseItem.price = "paid";
+            }
+            else{
+                courseItem.price = "free";
+            }
             allCourses.push(courseItem);
         }
     }
