@@ -30,24 +30,28 @@
         });
     });
 </script>
-<h3>Please fill in the form to get course recommendation</h3>
-<form>
-    <div class="form-group">
-        <label for="exampleInputEmail1">Main category</label><br>
-        <label class="radio-inline"><input type="radio" name="optradio" ng-model="form.category" value="Technology">Technology</label>
-        <label class="radio-inline"><input type="radio" name="optradio" ng-model="form.category" value="Business">Business</label>
-    </div>
-    <div class="form-group subcategory" id="subcategory-Technology">
-        <label for="exampleInputEmail1">Subcategory of Technology</label><br>
-        <label class="radio"><input type="checkbox" ng-model="form.webdevelopment" name="optradio">Web Development</label>
-        <label class="radio"><input type="checkbox" ng-model="form.mobiledevelopment" name="optradio">Mobile Development</label>
-        <label class="radio"><input type="checkbox" ng-model="form.bigdata" name="optradio">Big Data</label>
-    </div>
-    <div class="form-group subcategory" id="subcategory-Business">
-        <label for="exampleInputEmail1">Subcategory of Business</label><br>
-        <label class="radio"><input type="checkbox" ng-model="form.finance" name="optradio">Finance</label>
-        <label class="radio"><input type="checkbox" ng-model="form.accounting"name="optradio">Accounting</label>
-    </div>
+<div>
+    <h3>Please fill in the form to get course recommendation</h3>
+    <form>
+        <div class="form-group">
+            <label for="exampleInputEmail1">Main category</label><br>
+            <label class="radio-inline"><input type="radio" name="optradio" ng-model="form.category" value="Technology">Technology</label>
+            <label class="radio-inline"><input type="radio" name="optradio" ng-model="form.category" value="Business">Business</label>
+        </div>
+        <div class="form-group subcategory" id="subcategory-Technology">
+            <label for="exampleInputEmail1">Subcategory of Technology</label><br>
+            <label class="radio"><input type="checkbox" ng-model="form.webdevelopment" name="optradio">Web Development</label>
+            <label class="radio"><input type="checkbox" ng-model="form.mobiledevelopment" name="optradio">Mobile Development</label>
+            <label class="radio"><input type="checkbox" ng-model="form.bigdata" name="optradio">Big Data</label>
+        </div>
+        <div class="form-group subcategory" id="subcategory-Business">
+            <label for="exampleInputEmail1">Subcategory of Business</label><br>
+            <label class="radio"><input type="checkbox" ng-model="form.finance" name="optradio">Finance</label>
+            <label class="radio"><input type="checkbox" ng-model="form.accounting"name="optradio">Accounting</label>
+            <label class="radio"><input type="checkbox" ng-model="form.marketing"name="optradio">Marketing</label>
+        </div>
 
-    <button type="submit" ng-click="submitForm()"class="btn btn-success">Recommendations Please</button>
-</form>
+        <button type="submit" ng-click="submitForm()"class="btn btn-success">Recommendations Please</button>
+    </form>
+</div>
+

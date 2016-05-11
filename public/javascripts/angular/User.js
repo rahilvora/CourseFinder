@@ -6,7 +6,6 @@ var UserApp = angular.module("UserApp",["ngRoute","ui.bootstrap"]);
 
 UserApp.controller("GetRecommendationController",["$scope","$http", "$location","myService", function($scope,$http,$location, myService){
     $scope.typeformAPICall = function(){
-        console.log("Here");
         $http.get('api/getTypeFormData').then(function(result){
 
         });
@@ -16,16 +15,17 @@ UserApp.controller("GetRecommendationController",["$scope","$http", "$location",
         mobileDevelopment:[],
         bigData:[],
         finance:[],
-        accounting:[]
+        accounting:[],
+        marketing:[]
     };
     var data = $scope.subcategories  = myService.getData();
-    debugger;
     $scope.viewby = 10;
     $scope.totalItemsWebDevelopment = data.webDevelopment.length;
     $scope.totalItemsMobileDevelopment = data.mobileDevelopment.length;
     $scope.totalItemsBigData = data.bigData.length;
     $scope.totalItemsFinance = data.finance.length;
     $scope.totalItemsAccounting = data.accounting.length;
+    $scope.totalItemsMarketing = data.marketing.length;
     $scope.currentPage = 1;
     $scope.itemsPerPage = $scope.viewby;
 
@@ -50,9 +50,11 @@ UserApp.controller("GetRecommendationController",["$scope","$http", "$location",
                     if($scope.form.accounting == true && data[a].subcategory == "accounting"){
                         $scope.subcategories.accounting.push(data[a]);
                     }
+                    if($scope.form.marketing == true && data[a].subcategory == "marketing"){
+                        $scope.subcategories.marketing.push(data[a]);
+                    }
                 }
             }
-          //  console.log($scope.webdevelopment);
             myService.store($scope.subcategories);
             $location.path('/result');
         });
@@ -70,13 +72,9 @@ UserApp.config(['$routeProvider',
             templateUrl: '../Views/Users/result.ejs',
             controller: 'GetRecommendationController'
         }).
-        when('/udacity',{
-            templateUrl: '../Views/AdminViews/Udacity/ListCourses.ejs',
-            controller: 'UdacityController'
-        }).
-        when('/udacity/api',{
-            templateUrl: '../Views/AdminViews/Udacity/RefreshApi.ejs',
-            controller: 'UdacityController'
+        when('/',{
+            templateUrl: '../Views/Users/home.ejs',
+            controller: ''
         }).
         otherwise({
             redirectTo: "/"

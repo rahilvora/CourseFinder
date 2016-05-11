@@ -11,7 +11,8 @@ function myService(){
         mobileDevelopment:[],
         bigData:[],
         finance:[],
-        accounting:[]
+        accounting:[],
+        marketing:[]
     }
 
     return {
@@ -22,6 +23,7 @@ function myService(){
             subcategories.bigData = data.bigData;
             subcategories.finance = data.finance;
             subcategories.accounting = data.accounting;
+            subcategories.marketing = data.marketing;
         },
 
         getData : function(){

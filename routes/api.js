@@ -58,7 +58,8 @@ router.get('/udemyAPICall',function(req,res){
                         },
                         "business":{
                             "finance":["finance"],
-                            "accounting":["accounting"]
+                            "accounting":["accounting"],
+                            "marketing":["marketing"]
                         }
                     };
     generatedata(catogories,res);
@@ -73,7 +74,7 @@ function generatedata(catogories, res){
                 requestUdemyAPI(catogories[catogory][subcatogory][keyword],catogory,subcatogory,function(body){
                     count++;
                     dataobject.push(body);
-                    if(count>=7){
+                    if(count>=8){
                         storeUdemydata(dataobject);
                         console.log(dataobject);
                         res.send(200);
@@ -222,6 +223,7 @@ router.get('/courseraAPICall',function(req,res){
         "business":{
             "finance":"https://api.coursera.org/api/courses.v1?q=search&query=finance&primaryLanguages=en&limit=30",
             "accounting":"https://api.coursera.org/api/courses.v1?q=search&query=accounting&primaryLanguages=en&limit=30",
+            "marketing":"https://api.coursera.org/api/courses.v1?q=search&query=marketing&primaryLanguages=en&limit=30"
         }
     };
     generatedataCoursera(catogories,res);
@@ -235,7 +237,7 @@ function generatedataCoursera(catogories,res){
             requestCourseraAPI(catogories[catogory][subcatogory],catogory,subcatogory,function(result){
                 count++;
                 mainArray.push(result);
-                if(count>=5){
+                if(count>=6){
                     storeCourseraData(mainArray);
                     res.send(200);
                 }
