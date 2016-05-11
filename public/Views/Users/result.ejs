@@ -13,6 +13,11 @@
         <li><a href="#tabs-3">Big Data</a></li>
     </ul>
     <div id="tabs-1">
+        <form>
+            <div class="form-group">
+                <input ng-model="searchWebDevelopment.$" type="text" class="form-control" placeholder="Search">
+            </div>
+        </form>
         <table class="table table-striped">
 
             <tr>
@@ -21,16 +26,21 @@
                 <th>Category</th>
                 <th>Sub-Category</th>
             </tr>
-            <tr ng-repeat = " data in subcategories.webDevelopment">
+            <tr ng-repeat = " data in subcategories.webDevelopment.slice(((currentPage-1)*itemsPerPage), ((currentPage)*itemsPerPage))  | filter:searchWebDevelopment">
                 <td>{{data.name}}</td>
                 <td>{{data.website}}</td>
                 <td>{{data.category}}</td>
                 <td>{{data.subcategory}}</td>
             </tr>
-
+            <uib-pagination total-items="totalItemsWebDevelopment" ng-model="currentPage"></uib-pagination>
         </table>
     </div>
     <div id="tabs-2">
+        <form>
+            <div class="form-group">
+                <input ng-model="searchMobileDevelopment.$" type="text" class="form-control" placeholder="Search">
+            </div>
+        </form>
         <table class="table table-striped">
             <tr>
                 <th>Name</th>
@@ -38,15 +48,21 @@
                 <th>Category</th>
                 <th>Sub-Category</th>
             </tr>
-            <tr ng-repeat = " data in subcategories.mobileDevelopment">
+            <tr ng-repeat = " data in subcategories.mobileDevelopment.slice(((currentPage-1)*itemsPerPage), ((currentPage)*itemsPerPage))  | filter:searchMobileDevelopment">
                 <td>{{data.name}}</td>
                 <td>{{data.website}}</td>
                 <td>{{data.category}}</td>
                 <td>{{data.subcategory}}</td>
             </tr>
+            <uib-pagination total-items="totalItemsMobileDevelopment" ng-model="currentPage"></uib-pagination>
         </table>
     </div>
     <div id="tabs-3">
+        <form>
+            <div class="form-group">
+                <input ng-model="searchBigData.$" type="text" class="form-control" placeholder="Search">
+            </div>
+        </form>
         <table class="table table-striped">
             <tr>
                 <th>Name</th>
@@ -54,12 +70,13 @@
                 <th>Category</th>
                 <th>Sub-Category</th>
             </tr>
-            <tr ng-repeat = " data in subcategories.bigData">
+            <tr ng-repeat = " data in subcategories.bigData.slice(((currentPage-1)*itemsPerPage), ((currentPage)*itemsPerPage))  | filter:searchBigData">
                 <td>{{data.name}}</td>
                 <td>{{data.website}}</td>
                 <td>{{data.category}}</td>
                 <td>{{data.subcategory}}</td>
             </tr>
+            <uib-pagination total-items="totalItemsBigData" ng-model="currentPage"></uib-pagination>
         </table>
     </div>
 </div>
@@ -71,6 +88,11 @@
         <li><a href="#tabs-5">Accouting</a></li>
     </ul>
     <div id="tabs-4">
+        <form>
+            <div class="form-group">
+                <input ng-model="searchFinance.$" type="text" class="form-control" placeholder="Search">
+            </div>
+        </form>
         <table class="table table-striped">
             <tr>
                 <th>Name</th>
@@ -78,16 +100,21 @@
                 <th>Category</th>
                 <th>Sub-Category</th>
             </tr>
-            <tr ng-repeat = " data in subcategories.finance">
+            <tr ng-repeat = " data in subcategories.finance.slice(((currentPage-1)*itemsPerPage), ((currentPage)*itemsPerPage)) | filter:searchFinance">
                 <td>{{data.name}}</td>
                 <td>{{data.website}}</td>
                 <td>{{data.category}}</td>
                 <td>{{data.subcategory}}</td>
             </tr>
-
+            <uib-pagination total-items="totalItemsFinance" ng-model="currentPage"></uib-pagination>
         </table>
     </div>
     <div id="tabs-5">
+        <form>
+            <div class="form-group">
+                <input ng-model="searchAccounting.$" type="text" class="form-control" placeholder="Search">
+            </div>
+        </form>
         <table class="table table-striped">
             <tr>
                 <th>Name</th>
@@ -95,12 +122,13 @@
                 <th>Category</th>
                 <th>Sub-Category</th>
             </tr>
-            <tr ng-repeat = " data in subcategories.accounting">
+            <tr ng-repeat = " data in subcategories.accounting.slice(((currentPage-1)*itemsPerPage), ((currentPage)*itemsPerPage))git  | filter:searchAccounting">
                 <td>{{data.name}}</td>
                 <td>{{data.website}}</td>
                 <td>{{data.category}}</td>
                 <td>{{data.subcategory}}</td>
             </tr>
+            <uib-pagination total-items="totalItemsAccounting" ng-model="currentPage"></uib-pagination>
         </table>
     </div>
 </div>

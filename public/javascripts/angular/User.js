@@ -18,9 +18,16 @@ UserApp.controller("GetRecommendationController",["$scope","$http", "$location",
         finance:[],
         accounting:[]
     };
-    $scope.subcategories  = myService.getData();
-
-
+    var data = $scope.subcategories  = myService.getData();
+    debugger;
+    $scope.viewby = 10;
+    $scope.totalItemsWebDevelopment = data.webDevelopment.length;
+    $scope.totalItemsMobileDevelopment = data.mobileDevelopment.length;
+    $scope.totalItemsBigData = data.bigData.length;
+    $scope.totalItemsFinance = data.finance.length;
+    $scope.totalItemsAccounting = data.accounting.length;
+    $scope.currentPage = 1;
+    $scope.itemsPerPage = $scope.viewby;
 
 
     $scope.submitForm = function(){
